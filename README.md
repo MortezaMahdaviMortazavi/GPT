@@ -13,4 +13,12 @@ We hope this repository will be useful for researchers and developers who want t
 
 ![repro124m](assets/train.png)
 
-for every text generation task with a corpus dataset the training loss diminishing like this
+For every text generation task with a corpus dataset the training loss diminishing like this
+
+## Install
+Dependencies:
+- [pytorch](https://pytorch.org) <3
+- [numpy](https://numpy.org/install/) <3
+- `pip install transformers` for huggingface transformers <3 (to load GPT-2 checkpoints)
+- `pip install datasets` for huggingface datasets <3 (if you want to download + preprocess OpenWebText)
+- `pip install tqdm` <5
