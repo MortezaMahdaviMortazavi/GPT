@@ -12,3 +12,5 @@ This repository includes sample code for training the model on the Shakespeare t
 We hope this repository will be useful for researchers and developers who want to use the GPT-2 model for their NLP tasks. If you have any questions or feedback, please feel free to open an issue or contact us directly.
 
 ![repro124m](assets/train.png)
+
+for every text generation task with a corpus dataset the training loss diminishing like this
