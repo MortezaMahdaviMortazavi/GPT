@@ -8,7 +8,7 @@ import math
 
 
 class EmbeddingWithPositionalEncoding(nn.Module):
-    def __init__(self, vocab_size, d_model, max_seq_len,dropout=0.5):
+    def __init__(self, vocab_size, d_model, max_seq_len,dropout=0.2):
         # d_model is number of dimension of the embedding vector
         super(EmbeddingWithPositionalEncoding, self).__init__()
         self.token_embedding = nn.Embedding(vocab_size, d_model)
@@ -25,7 +25,7 @@ class EmbeddingWithPositionalEncoding(nn.Module):
         return self.dropout(token_emb + pos_emb)
 
 class AttentionHead(nn.Module):
-    def __init__(self, embed_size, head_size,block_size,dropout=0.5):
+    def __init__(self, embed_size, head_size,block_size,dropout=0.2):
         super().__init__()
         self.key = nn.Linear(embed_size, head_size, bias=False)
         self.query = nn.Linear(embed_size, head_size, bias=False)
@@ -70,7 +70,7 @@ class MaskedMultiHeadAttention(nn.Module):
         return out
     
 class FeedForward(nn.Module):
-    def __init__(self,n_embed,dropout=0.5):
+    def __init__(self,n_embed,dropout=0.2):
         super().__init__()
         """Simple Position-wise FeedForward Neural Network for our transformer block"""
         self.net = nn.Sequential(
@@ -96,13 +96,9 @@ class AddNorm(nn.Module):
         return output
     
 class Block(nn.Module):
-    def __init__(self,d_model,max_seq_len,n_embed,n_heads,dropout=0.5):
+    def __init__(self,d_model,max_seq_len,n_embed,n_heads,dropout=0.2):
         super().__init__()
         head_size = n_embed // n_heads
-
-        self.layerNorm = nn.LayerNorm(n_embed)
-        self.linear1 = nn.Linear(n_embed,n_embed)
-        self.linear2 = nn.Linear(n_embed,n_embed)
         self.masked_attention = MaskedMultiHeadAttention(
             num_heads=n_heads,
             head_size=head_size,
@@ -121,11 +117,7 @@ class Block(nn.Module):
 
     def forward(self,embed_output):
         identity = embed_output
-        # out = self.layerNorm(embed_output)
-        # out = self.linear1(embed_output)
         masked_attn_out = self.masked_attention(embed_output)
-        # out = self.linear2(masked_attn_out)
-        # out = self.dropout(out)
         out = self.ln1(masked_attn_out,identity)
         identity = out
         out = self.feedforward(out)               
@@ -153,11 +145,7 @@ class Transformer(nn.Module):
                           n_embed=embed_dim,
                           n_heads=n_heads)]
             )
-        self.rnn = nn.LSTM(embed_dim,embed_dim, 1)
-        self.lstm = nn.LSTM(embed_dim,embed_dim, 1)
-        
 
-        
         self.fc = nn.Linear(embed_dim,vocab_size)
     
     def forward(self,inp):
