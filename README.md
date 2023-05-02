@@ -10,3 +10,5 @@ Once the model is trained, you can use it to generate text or predict the labels
 This repository includes sample code for training the model on the Shakespeare text dataset and generating text using the trained model. You can use this code as a starting point for your own NLP task and customize it to fit your needs.
 
 We hope this repository will be useful for researchers and developers who want to use the GPT-2 model for their NLP tasks. If you have any questions or feedback, please feel free to open an issue or contact us directly.
+
+![repro124m](assets/train.png)
