@@ -27,3 +27,11 @@ Also for other dependencies you can install them with run command:
 ```
 $ pip install -r requirements.txt
 ```
+
+## Train
+You can train the architecture on your own dataset in txt format with this command:
+```
+$ python train.py --file_path "path of your txt dataset" --embed_dim 512 --chunk_size 512 --num_layers 6 --batch_size 20 --num_epochs 1000
+```
+you also can alter other parameters like embed dim , chunk size or number of layers with replace the front number with what you want
+
