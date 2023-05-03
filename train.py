@@ -75,16 +75,16 @@ if __name__ == "__main__":
     batch_size = args.batch_size
     num_epochs = args.num_epochs
 
-    # file_path = "t8shakespeare.txt"
+    file_path = "t8shakespeare.txt"
     embed_dim = 512
     num_layers = 3
-    batch_size = 20
-    num_epochs = 80
+    batch_size = 10
+    num_epochs = 200
 
     vocab = Vocabulary()
-    chunk_size = 512
+    chunk_size = 200
     # num_epochs = 1000
-    learning_rate = 0.001
+    learning_rate = 0.002
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     dataset = TextDataset(file_path, vocab, chunk_size, _type="word")
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     n_heads = 8
     embed_dim = 512
     num_layers = 3
-    max_seq_len = 512
+    max_seq_len = 200
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     model = Transformer(
