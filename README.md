@@ -3,6 +3,8 @@ This repository contains an implementation of the GPT-2 Transformer Model for Na
 
 The code in this repository allows you to train the GPT-2 model on your own dataset and fine-tune it for your specific NLP task. You can specify the model hyperparameters, such as the number of layers, the number of heads, and the embedding dimension, and train the model using the Adam optimizer and Cross Entropy loss. The model can be trained on a CPU or a GPU depending on your hardware resources.
 
+![repro124m](assets/gpt2.png)
+
 To use this code, you need to provide a text dataset in a plain text format. The code will preprocess the dataset by tokenizing the text and creating a vocabulary of unique tokens. Then, it will divide the dataset into chunks of a specified size and create a PyTorch DataLoader to feed the chunks into the model during training.
 
 Once the model is trained, you can use it to generate text or predict the labels of your NLP task. You can also save the trained model and load it later for further fine-tuning or prediction.
