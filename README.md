@@ -10,3 +10,28 @@ Once the model is trained, you can use it to generate text or predict the labels
 This repository includes sample code for training the model on the Shakespeare text dataset and generating text using the trained model. You can use this code as a starting point for your own NLP task and customize it to fit your needs.
 
 We hope this repository will be useful for researchers and developers who want to use the GPT-2 model for their NLP tasks. If you have any questions or feedback, please feel free to open an issue or contact us directly.
+
+![repro124m](assets/train.png)
+
+For every text generation task with a corpus dataset the training loss diminishing like this
+
+## Install
+Dependencies:
+- [pytorch](https://pytorch.org) <3
+- [numpy](https://numpy.org/install/) <3
+- `pip install transformers` for huggingface transformers <3
+- `pip install datasets` for huggingface datasets <3
+- `pip install tqdm` <5
+
+Also for other dependencies you can install them with run command:
+```
+$ pip install -r requirements.txt
+```
+
+## Train
+You can train the architecture on your own dataset in txt format with this command:
+```
+$ python train.py --file_path "path of your txt dataset" --embed_dim 512 --chunk_size 512 --num_layers 6 --batch_size 20 --num_epochs 1000
+```
+you also can alter other parameters like embed dim , chunk size or number of layers with replace the front number with what you want
+
