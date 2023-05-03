@@ -2,8 +2,7 @@
 This repository contains an implementation of the GPT-2 Transformer Model for Natural Language Processing (NLP) tasks. The GPT-2 model is a state-of-the-art language model that has been pre-trained on a massive corpus of text data and can be fine-tuned for various NLP tasks, such as text generation, sentiment analysis, and language translation.
 
 The code in this repository allows you to train the GPT-2 model on your own dataset and fine-tune it for your specific NLP task. You can specify the model hyperparameters, such as the number of layers, the number of heads, and the embedding dimension, and train the model using the Adam optimizer and Cross Entropy loss. The model can be trained on a CPU or a GPU depending on your hardware resources.
-
-![repro123m](assets/gpt2.png)       This the architecture of GPT2 for text generation
+![repro123m](assets/gpt2.png)
 
 To use this code, you need to provide a text dataset in a plain text format. The code will preprocess the dataset by tokenizing the text and creating a vocabulary of unique tokens. Then, it will divide the dataset into chunks of a specified size and create a PyTorch DataLoader to feed the chunks into the model during training.
 
